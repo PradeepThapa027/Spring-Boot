@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Spring Jquery Ajax Demo</title>
+
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+       console.log("response");
+       $(document).ready(function() {
+		  
+		  ajaxGet();
+		  
+		  function ajaxGet(){
+		    $.ajax({
+		      type : "POST",
+		      url : "/personnel/api/positions/",
+		      success: function(result){
+		    	  console.log("result");
+		    	  console.log(result);
+		        $.each(result, function(i, customer){
+		        	console.log("customer");
+		        	console.log(customer)
+
+		            });
+		      },
+		      error : function(e) {
+		        alert("ERROR: ", e);
+		        console.log("ERROR: ", e);
+		      }
+		    });  
+		  }
+		})
+    </script>
+</head>
+<body>
+      <h1>Spring Framework Jquery Ajax Demo</h1>
+</body>
+</html>
